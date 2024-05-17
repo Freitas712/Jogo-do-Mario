@@ -1,0 +1,85 @@
+* {/*reset básico do css*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.game-board {
+    background-color: rgb(8, 206, 237);
+    width: 100%;        /*espaço da tela de jogo*/
+    height: 500px;      /*altura da área do conteúdo do elemneto*/
+    border-bottom: 15px solid #0fb40f;
+    margin: 0 auto;     /*margens automáticas na esquerda e na direita para centralizar o bloco horizontalmente na tela*/
+    position: relative; /*para as outras imagens respeitarem a delimitação do quadro*/
+    overflow: hidden;   /*para tudo que sair das delimitações do quadro não apareça*/
+    background: linear-gradient(#87ceeb, #e0f6ff);
+}
+
+.pipe {
+    position: absolute;   /*para a imagem nao interferir nas outras */
+    bottom: 0;            /*distância da margem de baixo*/
+    width: 80px;          /*tamanho*/
+    animation: pipe-animation 2s infinite linear ;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.jump{
+    animation: jump 500ms ease-out; /*ease-out pra queda ser mais suave*/
+}
+.clouds { 
+    width: 400px;
+    position: absolute;
+    animation: clouds-animation 5s infinite linear;
+}
+
+.over {
+    width: 400px;
+    position: absolute;
+    margin: 0 auto;
+    /*animation: clouds-animation 10s infinite linear;*/
+}
+@keyframes pipe-animation {
+                     /*usa a propriedade right para movimentar*/
+    from{            /*de onde a aimação começa*/
+        right: -80px;/*negativo pra ele começar fora da tela*/
+    }
+    to{              /*de onde a aimação começa*/
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0%{
+        bottom: 0;      /*distância do chao*/
+    }
+    40%{
+        bottom: 180px;  /*pontos intermediários pro pulo prolongar*/
+    }
+    50%{
+        bottom: 180px;
+    }
+    60%{
+        bottom: 180px;
+    }
+    100%{
+        bottom: 0%;
+    }
+}
+
+@keyframes clouds-animation {
+    from {
+        right: -400%;
+    }
+
+    to {
+        right: 100%;
+    }
+
+}
